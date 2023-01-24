@@ -40,9 +40,33 @@ const Chat = ({ socket, room, username }: ChatProps) => {
         <p>Live chat</p>
       </div>
       <div>
-        {listmessages.map((message, i) => {
-          return <p key={i}>{message.message}</p>
-        })}
+        {listmessages.map((message, i) => (
+          <span key={i} style={{
+            width: 150,
+            backgroundColor: 'blue',
+            display: 'flex',
+            gap: 8,
+            borderRadius: 20,
+            paddingInline: 4,
+            alignItems: 'center'
+          }}>
+            <p style={{
+              fontSize: 10,
+              color: 'white'
+            }}>
+              {message.author}
+            </p>
+            <p style={{
+              fontSize: 18,
+              fontWeight: 'bold',
+              color: 'white',
+              textShadow: "1px 1px 0px black",
+            }}>
+              {message.message}
+            </p>
+
+          </span>
+        ))}
       </div>
       <div>
         <input type={"text"} placeholder="Hey..."
